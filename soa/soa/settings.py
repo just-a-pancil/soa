@@ -139,6 +139,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS")
-# EMAIL_HOST_USER = "soa55school@gmail.com"
-# EMAIL_HOST_PASSWORD = ".4QWJ7&`hP}4rnU,"
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
