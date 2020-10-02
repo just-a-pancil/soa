@@ -1,0 +1,16 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Привет, {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Выйти</a></p>
+{% else %}
+  <p>Вы не вошли в систему</p>
+  <p><a href="{% url 'login' %}">Войти</a></p>
+  <p><a href="{% url 'signup' %}">Зарегистрироваться</a></p>
+  <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+{% endif %}
+{% endblock %}

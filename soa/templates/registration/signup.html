@@ -1,0 +1,21 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+
+{% block title %}Зарегистрироваться{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Регистрация </h2>
+<!-- <div class='card'> -->
+  <h6 class="card-title">Поля со * обязательны</h6>	
+  <form action='' method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit"class="btn btn-primary btn-block">Зарегистрироваться</button>
+  </form>
+
+<!-- </div> -->
+{% endblock %}
+
+
