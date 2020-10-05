@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from profiles import views as user_views
 
 urlpatterns = [
-    path('profiles/', user_views.profile, name='profile'),
+    path('profile/', user_views.profile, name='profile'),
     path('accounts/', include('signup.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
