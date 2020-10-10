@@ -5,9 +5,11 @@ from django.contrib.auth import views
 from django.conf import settings
 from django.conf.urls.static import static
 from profiles import views as user_views
+from teacherSignup import views as teacher_views
 
 urlpatterns = [
-    path('profiles/', user_views.profile, name='profile'),
+    path('accounts/super_secret_teacher_signup/', teacher_views.registerPage, name='teacherSignup'),
+    path('profile/', user_views.profile, name='profile'),
     path('accounts/', include('signup.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
