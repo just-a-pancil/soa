@@ -15,7 +15,7 @@ def registerPage(request):
     context = {'form':form}
     return render(request, 'registration/signup.html', context)
     # return render(request, 'registration/signup.html')
-
+    
 # def registration(request):
 #     success_url = reverse_lazy('login')
 #     return render(request, 'templates/registration/registration.html')

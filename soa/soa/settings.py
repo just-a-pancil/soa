@@ -27,7 +27,7 @@ SECRET_KEY = 's6we=s8tz=n$b)l90dh*ed4yte0#t+8wh!6gy4=0g0%8nuo^ox'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'teacherSignup',
+    # 'teacherSignup',
+    'lists',
     'signup',
     'profiles',
     'crispy_forms',
@@ -71,6 +72,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+
+        'libraries':{
+            'has_group': 'profiles.templatetags.has_group',
+
+            }
         },
     },
 ]
