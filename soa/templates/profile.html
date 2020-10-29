@@ -2,18 +2,79 @@
 {% extends 'base.html' %}
 
 {% block title %}{{user.username}}{% endblock %}
+
+{% block head %}
+{% endblock head %}
 {% load crispy_forms_tags %}
 
-{% block main %}{% endblock %}
 {% block content %}
+  {% if user.is_authenticated %}
     <div class="content-section">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <style> .account-img {
+            max-width: 200px;
+            height: auto;
+            }
+            </style>
+        </div>
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
+          <p class="text-secondary">ID: {{ user.id }}</p>
+          <p><a href="{% url 'logout' %}">Выйти</a></p>
         </div>
-      </div>
-      <!-- FORM HERE -->
+        
+        {% load has_group %} 
+        {% if user|has_group:"Teacher" %}
+
+          <!-- List of lists -->
+          <div class="list-group">
+            <a href="#lists" data-toggle="modal" class="list-group-item list-group-item-action active">Ваши листы, <b>(+ Создать лист)</b></a>
+            <a href="" class="list-group-item list-group-item-action">Cras justo odio</a>
+          </div>
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" tabindex="-1" data-toggle="modal" data-target="#lists">Списки учеников</button>
+          
+            <!-- Modal -->
+            <style>.modal-backdrop {
+              color: red;
+              modal-content-bg: red; 
+              modal-content-fallback-border-color: red; }
+          </style>
+            <div class="modal fade" id="lists" role="dialog">
+              <div class="modal-dialog modal-xl">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Ваши листы</h4>
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-6">.col-md-4</div>
+                        <div class="col-md-6 ml-auto ">.col-md- .ml-auto</div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>  
+          </div>
+        {% endif %}
+  <!-- if not logged in -->
+  {% else %}
+    <div class="content-section">
+      <p>Вы не авторизированы</p>
+      <p><a href="{% url 'login' %}">Войти</a></p>
     </div>
+  {% endif %}
+
 {% endblock content %}
