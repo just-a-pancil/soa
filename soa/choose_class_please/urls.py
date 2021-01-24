@@ -5,6 +5,4 @@ from django.views.generic.base import TemplateView
 from . import views
 
 urlpatterns = [
-    path('', views.ShowProfle, name="profile"),
-    path('lists/', include('lists.urls',)),
-]
+    path('choose_class_please/', views.choose_class_please, name="choose_class_please"),]

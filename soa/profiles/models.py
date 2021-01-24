@@ -11,7 +11,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
     image = models.ImageField(default='default.svg', upload_to='profile_pics')
 
-
     def __str__(self):
         return f'{self.user.username} Profile'
 
@@ -26,9 +25,19 @@ class Profile(models.Model):
     __getUsername__.short_description = "Имя Пользователя"
 
     def __getGroups__(self):
-        return f'{self.user.is_active}'.upper()
-        __getGroups__.short_description = "Группы"
+        return ', '.join(self.user.groups.values_list('name',flat=True))
+        return None
+    __getGroups__.short_description = "Группы"
 
+    def __isActive__(self):
+        return '' if self.user.is_active else False
+        # return f'{self.user.is_active}'.upper()
+        return None
+    __isActive__.short_description = "Активирован"
+
+    def __isTeacher__(self):
+        return True if "Teacher" in self.user.groups.values_list('name', flat=True) else ''
+    __isTeacher__.short_description = "Учитель"
         
 
     @receiver(post_save, sender=User)
@@ -44,7 +53,7 @@ class Profile(models.Model):
         return user.groups.filter(name='Teacher').exists()
 
 class Lists(models.Model):
-    owner = models.ManyToManyField(User)
+    owner = models.ManyToManyField(Profile, null=True)
     lists = models.JSONField()
     public = models.BooleanField()
 

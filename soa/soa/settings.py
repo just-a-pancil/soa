@@ -39,11 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # 'teacherSignup',
+    'confirm_email',
+    'django_email_verification', # you have to add this
     'lists',
     'signup',
     'profiles',
     'crispy_forms',
+    'choose_class_please',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -144,5 +148,16 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_RESET_PASS")
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+
+EMAIL_SERVER = EMAIL_HOST
+EMAIL_ADDRESS = EMAIL_HOST_USER
+EMAIL_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_ACTIVE_FIELD = 'is_active'
+EMAIL_FROM_ADDRESS = 'noreply@aliasaddress.com'
+EMAIL_MAIL_SUBJECT = 'Confirm your email'
+EMAIL_MAIL_HTML = 'mail_body.html'
+EMAIL_MAIL_PLAIN = 'mail_body.txt'
+EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
+EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/'

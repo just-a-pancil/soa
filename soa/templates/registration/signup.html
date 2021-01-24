@@ -3,6 +3,9 @@
 
 {% block title %}Зарегистрироваться{% endblock %}
 
+{% block head %}
+{% endblock head %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -16,6 +19,8 @@
   </form>
 
 <!-- </div> -->
+{% block confirm_signup %}
+{% endblock %}
 {% endblock %}
 
 
