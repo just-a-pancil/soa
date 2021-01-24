@@ -51,11 +51,4 @@ class Profile(models.Model):
         
     def is_teacher(user):
         return user.groups.filter(name='Teacher').exists()
-
-class Lists(models.Model):
-    owner = models.ManyToManyField(Profile, null=True)
-    lists = models.JSONField()
-    public = models.BooleanField()
-
-    def __str__(self):
-        return f'{self.owner} List'
+        

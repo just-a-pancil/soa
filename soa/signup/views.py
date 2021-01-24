@@ -6,12 +6,6 @@ from django_email_verification import sendConfirm
 from django.contrib.auth.models import User
 
 from .forms import CreateUserForm
-from .forms import GradeForm    
-
-def setGrade(request):
-    gradeForm = GradeForm
-    context = {'form':gradeForm}
-    return render(request, "choose_class_please.html", context)
 
 
 def confirmEmail(user):

@@ -2,7 +2,6 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from profiles.models import Lists
 
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='''Нужен для активации аккаунта и восстановления пароля. Укажите тот, к которому у вас есть доступ прямо сейчас''')
@@ -12,13 +11,3 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', "email", "password1", "password2"]
-
-class GradeForm(forms.ModelForm):
-    lists = forms.CharField(max_length=3, label='Класс' ) 
-
-    class Meta:
-        model = Lists
-        fields = ["lists"]
-    # wigets = { 
-    #     'lists':  forms.CharField(max_length=3, attrs={'placeholder': 'Класс'} )   
-    # }

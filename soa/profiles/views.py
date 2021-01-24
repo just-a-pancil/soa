@@ -5,13 +5,11 @@ from django.contrib.auth.decorators import login_required
 
 
 def ShowProfle(request):
-    # if not User.object.get(username=request.username).last_login: return redirect('choose_class_please')
     context = {}
     try:
         # print(request.__dir__())
         user = User.objects.get(username=request.user)
         # if not user.last_login:
-        #     return redirect('choose_class_please')
         context['msg'] = 'Profile successfully disabled.'
     except Exception as e:
         context['msg'] = e

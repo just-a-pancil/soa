@@ -43,11 +43,9 @@ INSTALLED_APPS = [
     # 'teacherSignup',
     'confirm_email',
     'django_email_verification', # you have to add this
-    'lists',
     'signup',
     'profiles',
     'crispy_forms',
-    'choose_class_please',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
