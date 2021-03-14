@@ -3,8 +3,18 @@ from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 
-def profile(request):
-    return render(request, 'profile.html')
+
+def ShowProfle(request):
+    context = {}
+    # print(repr(request.GET.get('amount')))
+    try:
+        # print(request.__dir__())
+        user = User.objects.get(username=request.user)
+        # if not user.last_login:
+        context['msg'] = 'Profile successfully disabled.'
+    except Exception as e:
+        context['msg'] = e
+    return render(request, 'profile.html', context)
 
 # @login_required
 # def delete_user(request, username):

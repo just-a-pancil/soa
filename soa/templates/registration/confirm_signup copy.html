@@ -1,0 +1,34 @@
+{% extends 'registration/signup.html' %}
+
+{% block content %}
+
+    <!-- Trigger the modal with a button -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-sm">
+      
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ещё чуть-чуть</h4>
+                </div>
+
+                <div class="modal-body"> 
+                    Осталось проверить ящик, письмо для входа должно прийти в течение 2-5 минут
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" >Письмо не приходит?</button>
+                </div>
+            </div>
+        </div>     
+    
+    </div>
+    
+ <script data-toggle="modal">
+ $("#staticBackdrop").modal('show');
+ </script>
+{% endblock %}
+
+

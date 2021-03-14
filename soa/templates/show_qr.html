@@ -1,0 +1,36 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+
+{% block title %}Показать QR{% endblock %}
+
+{% block head %}
+{% endblock head %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if not user.is_active %}
+            
+        <div class="content-section">
+            <h1>Погоди, ты не подтвердил свою почту!</h1>
+        </div>
+        {% endif %}
+
+        <!-- if you are teacher -->
+        {% load has_group %} 
+        {% if user|has_group:"Teacher" %}
+
+            {% load static %}
+
+            <p>Можете нажать CTRL+P, чтобы быстро распечатать</p>
+            <img src="{% get_media_prefix %}/qrs/{{token}}.png">
+        {% endif %}
+  <!-- if not logged in -->
+  {% else %}
+    <div class="content-section">
+      <p>Вы не авторизированы</p>
+      <p><a href="{% url 'login' %}">Войти</a></p>
+    </div>
+  {% endif %}
+
+{% endblock content %}

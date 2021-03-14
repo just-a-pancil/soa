@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmation {% endblock %}
+{% block content %}
+    {% if success %}
+        <h4>Отлично!</h4>
+        <h5>Вы подтвердили свой аккаунт!</h5>
+        <a href="{% url 'classChoose' %}" type="button" class="btn btn-primary" >Войти</a>
+        {% else %}
+        Error, invalid token!
+    {% endif %}
+{% endblock %}

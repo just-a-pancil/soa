@@ -4,19 +4,20 @@
 {% block title %}Вход{% endblock %}
 
 {% block content %}
-<div class="card">
-<div class="card-body">
-<h4 class="card-title">Войдите в свой аккаунт</h4>
-
 <form method="post">
-{% csrf_token %}
-
-{{ form|crispy }}
-
-<button type="submit" class="btn btn-primary btn-block">Войти</button>
-<p><p><a href="{% url 'password_reset' %}">Забыли пароль?</a>
-<span><a href="{% url 'signup' %}">Нет аккаунта?</a></span>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Войдите в свой аккаунт</h4>
+                {% csrf_token %}
+                {{ form|crispy }}
+            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Войти</button>
+            <div class="row justify-content-end">
+                <div class="col mt-3">
+                    <a href="{% url 'password_reset' %}" class="link-secondary">Забыли пароль?</a>
+                    <a href="{% url 'signup' %}"  class="link-secondary ml-3">Нет аккаунта?</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
-</div>
-</div>
 {% endblock %}

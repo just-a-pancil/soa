@@ -1,0 +1,62 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+
+{% block title %}Показать QR{% endblock %}
+
+{% block head %}
+{% endblock head %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if not user.is_active %}
+            
+        <div class="content-section">
+            <h1>Погоди, ты не подтвердил свою почту!</h1>
+        </div>
+        {% endif %}
+
+        <!-- if you are teacher -->
+        {% load has_group %} 
+        {% if user|has_group:"Teacher" %}
+
+          <h2>Позвольте ученикам получить вознаграждение!</h2>
+          <!-- method is post, not get, pay attention! -->
+          <form action="/generate-key-page/" method="post">
+            <label>Ссылка будет действительна:</label>
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-2">
+                {{ form.duration_minutes|as_crispy_field }}
+              </div>
+              <div class="col-2">
+                {{ form.duration_hours|as_crispy_field }}
+              </div>
+              <div class="col-2">
+                {{ form.duration_days|as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-5">
+              {{ form.amount|as_crispy_field }}
+            </div>
+            <div class="col-5">
+              {{ form.scan_amount|as_crispy_field }}
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Ok</button>
+          </form>
+        
+
+          <a class="btn btn-dark" href="http://127.0.0.1:8000/generate-key-page/" role="button">dont touch me, sempai!</a>
+
+
+        {% endif %}
+  <!-- if not logged in -->
+  {% else %}
+    <div class="content-section">
+      <p>Вы не авторизированы</p>
+      <p><a href="{% url 'login' %}">Войти</a></p>
+    </div>
+  {% endif %}
+
+{% endblock content %}

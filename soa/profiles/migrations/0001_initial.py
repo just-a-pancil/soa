@@ -21,14 +21,4 @@ class Migration(migrations.Migration):
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='auth.user')),
                 ('image', models.ImageField(default='default.svg', upload_to='profile_pics')),
             ],
-        ),
-        migrations.CreateModel(
-            name='Lists',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('lists', models.JSONField()),
-                ('public', models.BooleanField()),
-                ('owner', models.ManyToManyField(to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-    ]
+        ),]
