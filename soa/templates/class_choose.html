@@ -1,0 +1,45 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+
+{% block title %}Зарегистрироваться{% endblock %}
+
+
+
+{% block head %}
+{% endblock head %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+
+  <form action="" method="post">
+    {% csrf_token %}
+      {{ form|crispy }}
+
+      <!-- for nice design: -->
+      <label for=""></label> 
+    
+    <button type="submit" class="btn btn-primary btn-block">Ok</button>
+  </form>
+
+  <!-- <form method="post">
+    {% csrf_token %}
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Поздравляем, вы зарегестрировались!</h4>
+        <h6> Можете указать класс, чтобы учителю было удобнее начислять вам баллы</h6 >
+            <input type="text" maxlength="3" class="form-control" id="class" placeholder="Ваш класс. Например: 10Б" autofocus>
+            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Далее</button>
+        </div>
+    </div>
+  </form> -->
+
+  <!-- if not logged in -->
+  {% else %}
+  <div class="content-section">
+    <p>Вы не авторизированы</p>
+    <p><a href="{% url 'login' %}">Войти</a></p>
+  </div>
+  {% endif %}
+
+{% endblock content %}

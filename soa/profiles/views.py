@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 def ShowProfle(request):
     context = {}
+    # print(repr(request.GET.get('amount')))
     try:
         # print(request.__dir__())
         user = User.objects.get(username=request.user)

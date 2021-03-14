@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 's6we=s8tz=n$b)l90dh*ed4yte0#t+8wh!6gy4=0g0%8nuo^ox'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -43,9 +44,16 @@ INSTALLED_APPS = [
     # 'teacherSignup',
     'confirm_email',
     'django_email_verification', # you have to add this
+    'django_celery_beat',
     'signup',
     'profiles',
     'crispy_forms',
+    'directTransactions',
+    'newKey',
+    'newKeyChoose',
+    'remoteTransactions',
+    'qrShower',
+    'classChoose',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -159,3 +167,4 @@ EMAIL_MAIL_HTML = 'mail_body.html'
 EMAIL_MAIL_PLAIN = 'mail_body.txt'
 EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
 EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/'
+CELERY_BROKER_URL = 'redis://localhost:6379'

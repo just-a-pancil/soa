@@ -21,6 +21,7 @@
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
+          <p>COINS: {{ user.coins }}</p>
           <p class="text-secondary">ID: {{ user.id }}</p>
           <p><a href="{% url 'logout' %}">Выйти</a></p>
         </div>
@@ -37,6 +38,8 @@
         {% if user|has_group:"Teacher" %}
 
         <h2>Вы вошли как учитель</h2>
+        <a class="btn btn-dark" href="http://127.0.0.1:8000/generate-key-page/" role="button">dont touch me, sempai!</a>
+        <p><a href="{% url 'classChoose' %}">Выбрать Класс</a></p>
 
         {% endif %}
   <!-- if not logged in -->

@@ -15,6 +15,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('email/', include(mail_urls)),
     path('email-confirm/', include('confirm_email.urls')),
+    path('transaction/direct/', include('directTransactions.urls')),
+    path('transaction/remote/', include('remoteTransactions.urls')),
+    path('generate-key/', include('newKey.urls')),
+    path('generate-key-page/', include('newKeyChoose.urls')),
+    # path('generate-key-page/', TemplateView.as_view(
+    #     template_name='generate_key_page.html'), name='generate-key-page'),
+    path('show-qr/', include('qrShower.urls')),
+    path('class-choose/', include('classChoose.urls'), name='classChoose'),
 
     # path('', include('profiles.urls')),
     # path('accounts/super_secret_teacher_signup/', teacher_views.registerPage, name='teacherSignup'),

@@ -31,18 +31,19 @@ s.l0.n.h.0ttabuch@gmail.com
 sl.0.n.h.0ttabuch@gmail.com
 s.l.0.n.h.0ttabuch@gmail.com
 sl0nh0.ttabuch@gmail.com
-s.l0nh0.ttabuch@gmail.com
-sl.0nh0.ttabuch@gmail.com
+s.l0nh0.ttabuch@gmail.com // Exception Value:   User has no coins.
+sl.0nh0.ttabuch@gmail.com //user_id 56
 s.l.0nh0.ttabuch@gmail.com
-sl0.nh0.ttabuch@gmail.com
+sl0.nh0.ttabuch@gmail.com //TestUser2
 s.l0.nh0.ttabuch@gmail.com
-sl.0.nh0.ttabuch@gmail.com
+sl.0.nh0.ttabuch@gmail.com //user_id 60, pass adminadmin
 s.l.0.nh0.ttabuch@gmail.com
 sl0n.h0.ttabuch@gmail.com
-s.l0n.h0.ttabuch@gmail.com
+s.l0n.h0.ttabuch@gmail.com // qrs user_id 64
 sl.0n.h0.ttabuch@gmail.com
 s.l.0n.h0.ttabuch@gmail.com
 sl0.n.h0.ttabuch@gmail.com
+
 s.l0.n.h0.ttabuch@gmail.com
 sl.0.n.h0.ttabuch@gmail.com
 s.l.0.n.h0.ttabuch@gmail.com
