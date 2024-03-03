@@ -15,4 +15,4 @@ For a more visual presentation, the diagram presented in appendix 1 has been com
 # Results 
 As a result of the work done, a website was created that allows students and classes to have an account. With the help of the website, students can request remuneration from the administration of the institution in the form agreed in advance with the students or established by the administration. The award is accompanied by the deduction of the amount of points from the account of the class or student. The site administrator has a special right to set pricing policy and prescribe assignments for students.
 
-[some Sources]([url](https://docs.google.com/document/d/18YFokUoQcC9U9EcA-pOQTtKDIiVKERJk/edit)https://docs.google.com/document/d/18YFokUoQcC9U9EcA-pOQTtKDIiVKERJk/edit)
+[Sources]([url](https://docs.google.com/document/d/18YFokUoQcC9U9EcA-pOQTtKDIiVKERJk/edit)https://docs.google.com/document/d/18YFokUoQcC9U9EcA-pOQTtKDIiVKERJk/edit)
